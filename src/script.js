@@ -64,15 +64,46 @@ let course=['Kali', 'Loca','Remis','Hoisnr'];
 let isFour=course.filter((c)=>c.length==4);
 
 display('Courses: '+course);
+isFour[0]='lkni'
 display('Contains four letter: '+isFour);
 
 
 //Using reducer
 
-let ar=[1,3,4,5,6];
+// let ar=[1,3,4,5,6];
 
-let newRedAr=ar.reduce((ac,c)=>ac+c);
+// let newRedAr=ar.reduce((ac,c)=>ac+c);
 
-display("Reducer Function")
-display("Initial Array: "+ar)
-display("New Array: "+newRedAr)
+// display("Reducer Function")
+// display("Initial Array: "+ar)
+// display("New Array: "+newRedAr)
+
+// //recursive function
+// const printFunc=(num)=>{
+//   if(num==11)return;
+
+//   display(num)
+//   printFunc(num+1);
+// }
+
+// printFunc(1);
+
+//Custom higher order function
+
+const add=(n1,n2)=>n1+n2;
+const sub=(n1,n2)=>n1-n2;
+const prd=(n1,n2)=>n1*n2;
+
+const customHigherOrderFunction=(operation,initialVal,arr)=>{
+  let total =initialVal;
+
+    arr.forEach((value)=>{
+      total=operation(total,value);
+    });
+
+  return total;
+}
+
+display(customHigherOrderFunction(add,0,[1,2,3,4]))
+display(customHigherOrderFunction(sub,0,[1,2,3,4]))
+display(customHigherOrderFunction(prd,1,[1,2,3,4]))
